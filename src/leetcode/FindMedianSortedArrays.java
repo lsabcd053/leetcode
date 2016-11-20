@@ -6,8 +6,8 @@ package leetcode;
 public class FindMedianSortedArrays {
 
     public static void main(String[] args) {
-        int nums1[] = {1,3};
-        int nums2[] = {2};
+        int nums1[] = {1};
+        int nums2[] = {1};
 
         System.out.print(findMedianSortedArrays(nums1,nums2));
     }
@@ -16,20 +16,37 @@ public class FindMedianSortedArrays {
         int m = nums1.length;
         int n = nums2.length;
 
-        int index = (m+n+(m+n)%2)/2;
-        int i=0,j=0,count=0;
-        if (nums1.length > 0){
-            int cur = nums1[0];
+        if (m==0 && n==1){
+            return (double)nums2[0];
+        }else if(n==0 && m==1){
+            return (double)nums1[0];
         }
 
-        while((i+j) < index){
-            while (i<m && nums1[i] < nums2[j]){
+        int index = (m+n+(m+n)%2)/2-1;
+        int i=0,j=0;
+        int v1=0,v2 = 0;
+
+        for (int t=0;t<= index+1;t++){
+            v1=v2;
+            if((i<m && j<n) && nums1[i] <= nums2[j]){
+                v2 = nums1[i];
+                i++;
+            }else if((i<m && j<n) && nums1[i] >= nums2[j]){
+                v2 = nums2[j];
+                j++;
+            }else if (i==m && j<n){
+                v2 = nums2[j];
+                j++;
+            }else if (i<m && j==n){
+                v2 = nums1[i];
                 i++;
             }
-            while(j< n && nums1[i] > nums2[j]){
-                j++;
-            }
+
         }
-        return 0.0;
+        if ((m+n)%2 == 1){
+            return (double) v1;
+        }else{
+            return (double)(v1+v2)/2;
+        }
     }
 }
