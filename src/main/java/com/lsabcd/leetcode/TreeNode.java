@@ -1,13 +1,13 @@
 package com.lsabcd.leetcode;
 
 public class TreeNode {
-    int val;
+    public  int val;
 
-    TreeNode left;
+    public TreeNode left;
 
-    TreeNode rigit;
+    public TreeNode right;
 
-    TreeNode(int x){val = x;}
+    public TreeNode(int x){val = x;}
 
 
     public int getVal() {
@@ -26,12 +26,5 @@ public class TreeNode {
         this.left = left;
     }
 
-    public TreeNode getRigit() {
-        return rigit;
-    }
-
-    public void setRigit(TreeNode rigit) {
-        this.rigit = rigit;
-    }
 
 }

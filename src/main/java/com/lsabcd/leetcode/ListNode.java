@@ -1,9 +1,9 @@
-package com.lsabcd.leetcode.t2;
+package com.lsabcd.leetcode;
 
 public class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int x) { val = x; }
+    public int val;
+    public ListNode next;
+    public ListNode(int x) { val = x; }
 
     public int getVal() {
         return val;
